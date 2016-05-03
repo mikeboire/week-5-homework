@@ -1,50 +1,5 @@
 var questionnaire = [
   {
-    "question" : "The sky is blue.",
-    "response" : "The sky is blue!",  
-    "correct"  : 1
-  },
-  {
-    "question" : "Campus has great internet",
-    "response" : "That shiz be laggin",
-    "correct"  : 0
-  },
-  {
-    "question" : "Tom Brady is guilty",
-    "response" : "Yeah right; free Touchdown Tommy!",
-    "correct"  : 0
-  },
-    {
-    "question" : "",
-    "response" : "The Earth is round!",  
-    "correct"  : 1 
-  },
-  {
-    "question" : "The 'cravat' is originally from France.",
-    "response" : "The 'cravat' is from Croatia!",
-    "correct"  : 0
-  },
-  {
-    "question" : "Is Java == JavaScript?",
-    "response" : "It's a different language.",
-    "correct"  : 0
-  } 
-  {
-    "question" : "The Earth is round.",
-    "response" : "The Earth is round!",  
-    "correct"  : 1
-  },
-  {
-    "question" : "The 'cravat' is originally from France.",
-    "response" : "The 'cravat' is from Croatia!",
-    "correct"  : 0
-  },
-  {
-    "question" : "Is Java == JavaScript?",
-    "response" : "It's a different language.",
-    "correct"  : 0
-  },
-    {
     "question" : "The Earth is round.",
     "response" : "The Earth is round!",  
     "correct"  : 1    // 0=False, 1=True
@@ -58,8 +13,7 @@ var questionnaire = [
     "question" : "Is Java == JavaScript?",
     "response" : "It's a different language.",
     "correct"  : 0
-  } 
-
+  } // Add comma and more objects.
 ];
 
 var $qDIV     = $('#qDIV'),
@@ -84,22 +38,22 @@ function QandA( idx ){
 QandA();
 
 $answer.click(function(){   
-    var idx = $answer.index(this);
+    var idx = $answer.index(this); // 0 or 1  (get button index)
     QandA( idx );
     $rDIV.fadeTo(600,1);
     $qDIV.hide();
-    console.log( JSON.stringify(questionnaire, null, 1) ); 
+    console.log( JSON.stringify(questionnaire, null, 1) ); // TEST ONLY
 });
 
 $('#prev, #next').click(function(){
-    c = this.id=='next' ? ++c : c ; 
+    c = this.id=='next' ? ++c : c ; // advance or repeat Question
     QandA();
     $('#next').toggle(c<tot-1);
     $('#score').toggle(c>=tot-1);
 });
 
 $('#score').click(function(){
-  c = 0;   
+  c = 0;   // reset questionnary to first question
   $('pre').text( JSON.stringify(questionnaire, null, 2) ); 
-  QandA();
+  QandA(); // Restart
 });
