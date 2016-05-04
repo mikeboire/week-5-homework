@@ -15,49 +15,19 @@ var questionnaire = [
     "correct"  : 0
   },
     {
-    "question" : "",
-    "response" : "The Earth is round!",  
-    "correct"  : 1 
+    "question" : "Google chrome is awesome",
+    "response" : "As if! Chrome is so slow",  
+    "correct"  : 0 
   },
   {
-    "question" : "The 'cravat' is originally from France.",
-    "response" : "The 'cravat' is from Croatia!",
-    "correct"  : 0
-  },
-  {
-    "question" : "Is Java == JavaScript?",
-    "response" : "It's a different language.",
-    "correct"  : 0
-  } 
-  {
-    "question" : "The Earth is round.",
-    "response" : "The Earth is round!",  
+    "question" : "My wife is gorgeous",
+    "response" : "Yeah, I definitely married up",
     "correct"  : 1
   },
   {
-    "question" : "The 'cravat' is originally from France.",
-    "response" : "The 'cravat' is from Croatia!",
-    "correct"  : 0
-  },
-  {
-    "question" : "Is Java == JavaScript?",
-    "response" : "It's a different language.",
-    "correct"  : 0
-  },
-    {
-    "question" : "The Earth is round.",
-    "response" : "The Earth is round!",  
-    "correct"  : 1    // 0=False, 1=True
-  },
-  {
-    "question" : "The 'cravat' is originally from France.",
-    "response" : "The 'cravat' is from Croatia!",
-    "correct"  : 0
-  },
-  {
-    "question" : "Is Java == JavaScript?",
-    "response" : "It's a different language.",
-    "correct"  : 0
+    "question" : "I need to practice Javascript",
+    "response" : "Cause practice makes perfect!!",
+    "correct"  : 1
   } 
 
 ];
@@ -68,16 +38,16 @@ var $qDIV     = $('#qDIV'),
     $answer   = $("button", $qDIV),
     $response = $("p",      $rDIV),
     tot       = questionnaire.length,
-    c         = 0; // Current Q array counter 
+    c         = 0;
 
 function QandA( idx ){  
    $qDIV.fadeTo(600,1); 
    $rDIV.hide();  
-   var currQ = questionnaire[c];   // The Object literal from Array
-   var isCorrect = currQ.correct;  // 0 or 1?
-   var answerIsCorrect = idx==isCorrect; // (compare values) Returns boolean 
+   var currQ = questionnaire[c];  
+   var isCorrect = currQ.correct;  
+   var answerIsCorrect = idx==isCorrect; 
    var resp = answerIsCorrect ? "Great!" : "Wrong!";
-   currQ.answer = idx;             // Put user answer into object (0 or 1)
+   currQ.answer = idx;  
    $qH2.text( (c+1) +'. '+ currQ.question );
    $response.text( resp +' '+ currQ.response );
 }
